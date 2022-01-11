@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+  environment{
+    def param = readJSON file: 'file.json'
+    name = "${param.name}"
+    environment = "${param.env}"
+  }
+  stages{
+    stage('Test'){
+      steps{
+        echo "${name}"
+      }
+    }
+  }
+}
