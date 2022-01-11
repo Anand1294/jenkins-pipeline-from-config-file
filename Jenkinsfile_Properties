@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment{
-    def param = readJSON file: 'file.properties'
+    def param = readProperties file: 'file.properties'
     name = "${param.name}"
     environment = "${param.env}"
   }
